@@ -1,0 +1,12 @@
+- hosts: localhost
+  roles:
+    - role: dnsmasq
+      dnsmasq_port: 0
+      dnsmasq_except_interface: lo
+      dnsmasq_no_resolv: true
+      dnsmasq_no_poll: true
+      dnsmasq_dhcp_ranges:
+        - 192.168.42.0,static,255.255.255.0
+      dnsmasq_dhcp_hosts:
+        - 00:0c:29:6b:d3:90,192.168.42.2,12h
+      dnsmasq_dhcp_option: 3,192.168.42.254
